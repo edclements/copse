@@ -1,0 +1,6 @@
+<ul>
+<% @logs.each do |log| %>
+  <li><%= log.time %>|<%= log.completed_time %>|<%= log.action %>|<%= log.controller %></li>
+  <%# <li><%= log.ReceivedAt %1>|<%= log.SysLogTag %1>|<%= log.Message %1></li> %>
+<% end %>
+</ul>

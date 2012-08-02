@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  completed_time: 1
+  view_time: 1
+  db_time: 1
+  action: MyString
+  controller: MyString
+  time: 2012-07-31 20:54:49
+
+two:
+  completed_time: 1
+  view_time: 1
+  db_time: 1
+  action: MyString
+  controller: MyString
+  time: 2012-07-31 20:54:49
