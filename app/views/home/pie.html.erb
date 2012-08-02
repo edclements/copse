@@ -2,7 +2,7 @@
 <script type="text/javascript">
 
   // Load the Visualization API and the piechart package.
-  google.load('visualization', '1.0', {'packages':['annotatedtimeline']});
+  google.load('visualization', '1.0', {'packages':['corechart']});
 
   // Set a callback to run when the Google Visualization API is loaded.
   google.setOnLoadCallback(drawChart);
@@ -11,25 +11,17 @@
   // instantiates the pie chart, passes in the data and
   // draws it.
   var rows = <%= raw @data %>;
-  $.each(rows, function(index, value) {
-      date = new Date(value[0]);
-      console.log(date);
-      rows[index] = [date,value[1]];
-  });
   function drawChart() {
 
     // Create the data table.
-    var data = new google.visualization.DataTable();
-    data.addColumn('date', 'Date');
-    data.addColumn('number', 'Render Completed Time');
-    data.addRows(rows);
+    var data = new google.visualization.arrayToDataTable(rows, true);
 
     // Set chart options
     var options = {'title':'Render Completed Time'};
 
-    var annotatedtimeline = new google.visualization.AnnotatedTimeLine(
+    var chart = new google.visualization.CandlestickChart(
       document.getElementById('chart_div'));
-    annotatedtimeline.draw(data, {'displayAnnotations': true});
+    chart.draw(data, options);
   }
 </script>
 <div id="chart_div" style="width: 800px; height: 400px;"></div>

@@ -58,5 +58,8 @@ Copse::Application.routes.draw do
 
   root :to => 'home#index'
   
-  match 'home' => 'home#index'
+  match 'graph' => 'home#graph'
+  match 'candlestick' => 'home#candlestick'
+  match 'list' => 'home#list'
+  match 'syslogs' => 'home#syslog_list'
 end

@@ -13,8 +13,13 @@
   var rows = <%= raw @data %>;
   $.each(rows, function(index, value) {
       date = new Date(value[0]);
-      console.log(date);
-      rows[index] = [date,value[1]];
+      val = value[1]/1000
+      if (val < 10) {
+        rows[index] = [date,val];
+      }
+      else {
+        rows[index] = [date,0];
+      }
   });
   function drawChart() {
 

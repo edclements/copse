@@ -1,0 +1,11 @@
+<table>
+  <tr><th>Time</th><th>Completed (ms)</th></tr>
+  <% @logs.each do |log| %>
+  <tr>
+    <td><%= log.time %></td>
+    <td><%= log.completed_time %></td>
+    <td><%= log.controller %></td>
+    <td><%= log.action %></td>
+  </tr>
+  <% end %>
+</table>
