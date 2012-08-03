@@ -57,6 +57,8 @@ Copse::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
 
   root :to => 'home#index'
+
+  mount Resque::Server, :at => "/resque"
   
   match 'graph' => 'home#graph'
   match 'candlestick' => 'home#candlestick'

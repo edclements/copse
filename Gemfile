@@ -39,3 +39,8 @@ gem 'jquery-rails'
 
 gem 'mysql2'
 
+gem 'resque', :require => 'resque/server'
+
+group :development do
+  gem 'capistrano'
+end
