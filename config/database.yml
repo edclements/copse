@@ -1,7 +1,0 @@
-
-development:
-  adapter: mysql2
-  database: logger
-  username: root
-  password:
-  host: localhost

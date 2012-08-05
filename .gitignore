@@ -17,3 +17,4 @@ pickle-email-*.html
 *.sw*
 /config/deploy.rb
 Capfile
+/config/database.yml
