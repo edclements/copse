@@ -44,3 +44,5 @@ gem 'resque', :require => 'resque/server'
 group :development do
   gem 'capistrano'
 end
+
+gem 'rails-backbone'
