@@ -3,8 +3,8 @@ class HomeController < ApplicationController
   def index
     # @logs = SystemEvents.where("SysLogTag = 'rails[10941]:'").order('Message').limit(200)
     # @logs = SystemEvents.where("SysLogTag = 'rails[10941]:'").order('ReceivedAt').limit(200)
-    @logs = RenderLog.order('time')
-    @data = @logs.map {|l| ["#{l.time}", l.completed_time]}
+    @logs = RenderLog.order('time').limit(200)
+    # @data = @logs.map {|l| ["#{l.time}", l.completed_time]}
   end
 
   def graph

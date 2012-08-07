@@ -64,4 +64,6 @@ Copse::Application.routes.draw do
   match 'candlestick' => 'home#candlestick'
   match 'list' => 'home#list'
   match 'syslogs' => 'home#syslog_list'
+
+  resources :render_logs
 end
