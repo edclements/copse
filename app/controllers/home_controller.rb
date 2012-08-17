@@ -1,23 +1,22 @@
 class HomeController < ApplicationController
 
   def index
-    # @logs = SystemEvents.where("SysLogTag = 'rails[10941]:'").order('Message').limit(200)
-    # @logs = SystemEvents.where("SysLogTag = 'rails[10941]:'").order('ReceivedAt').limit(200)
-    @logs = RenderLog.order('time').limit(200)
-    # @data = @logs.map {|l| ["#{l.time}", l.completed_time]}
+    @render_log_count = RenderLog.count
+    @syslog_count = SystemEvents.count
+    @logs = RenderLog.order('time').limit(50)
   end
 
   def graph
-    @logs = RenderLog.order('time')
+    @logs = RenderLog.order('time').limit(50)
     @data = @logs.map {|l| ["#{l.time}", l.completed_time]}
   end
 
   def list
-    @logs = RenderLog.order('completed_time DESC').limit(200)
+    @logs = RenderLog.order('completed_time DESC').limit(50)
   end
 
   def syslog_list
-    @logs = SystemEvents.order('Message').limit(200)
+    @logs = SystemEvents.order('Message').limit(50)
   end
 
   def candlestick
@@ -38,15 +37,6 @@ class HomeController < ApplicationController
       low = values.first
       @data << ["#{time.strftime('%F - %T')}",low,open,close,high]
     end
-  end
-
-  def pie
-    x = RenderLog.all.map {|log| log.controller+'/'+log.action}
-    y = Hash.new(0)
-    x.each do |v|
-      y[v] += 1
-    end
-    @data = []
   end
 
 end
