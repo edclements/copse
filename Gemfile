@@ -40,11 +40,12 @@ gem 'jquery-rails'
 
 gem 'mysql2'
 
-gem 'resque', :require => 'resque/server'
-
 group :development do
   gem 'capistrano'
 end
 
 gem 'rails-backbone'
 gem 'ejs'
+gem 'sidekiq'
+gem 'slim'
+gem 'sinatra', :require => nil

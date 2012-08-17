@@ -1,6 +1,6 @@
 class ProcessSyslogTag
-  @queue = :process_syslog_queue
-  def self.perform(tag)
+  include Sidekiq::Worker
+  def perform(tag)
     regex = /.*Completed in (\d+)ms \(View: (\d+), DB: (\d+).*/
     render_logs = []
     last_i = nil
