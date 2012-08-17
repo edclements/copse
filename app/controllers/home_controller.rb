@@ -1,8 +1,6 @@
 class HomeController < ApplicationController
 
   def index
-    @render_log_count = RenderLog.count
-    @syslog_count = SystemEvents.count
     @logs = RenderLog.order('time').limit(50)
   end
 
