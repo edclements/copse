@@ -2,7 +2,7 @@ class ProcessSyslogTag
   include Sidekiq::Worker
   def perform(tag)
     Rails.logger.info "Processing tag #{tag} start"
-    regex = /.*Completed in (\d+)ms \(View: (\d+), DB: (\d+)) | (\d+ .+?) \[(.+?)\]/
+    regex = /.*Completed in (\d+)ms \(View: (\d+), DB: (\d+)\) | (\d+ .+?) \[(.+?)\]/
     render_logs = []
     last_i = nil
     syslogs = SystemEvents.where("SysLogTag = ?", tag).order('Message')
