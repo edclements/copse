@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120822144552) do
+ActiveRecord::Schema.define(:version => 20120822163944) do
 
   create_table "SystemEvents", :primary_key => "ID", :force => true do |t|
     t.integer  "CustomerID",         :limit => 8
@@ -57,6 +57,9 @@ ActiveRecord::Schema.define(:version => 20120822144552) do
     t.datetime "time"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.string   "status_code"
+    t.string   "url"
+    t.string   "session_id"
   end
 
   create_table "system_events", :force => true do |t|
