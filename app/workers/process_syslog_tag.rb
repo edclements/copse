@@ -1,6 +1,7 @@
 class ProcessSyslogTag
   include Sidekiq::Worker
   def perform(tag)
+    Rails.logger "Processing tag #{tag} start"
     regex = /.*Completed in (\d+)ms \(View: (\d+), DB: (\d+).*/
     render_logs = []
     last_i = nil
@@ -35,5 +36,6 @@ class ProcessSyslogTag
       syslog_ids = syslogs[0..last_i].map {|syslog| syslog.id}
       SystemEvents.delete_all("id in (#{syslog_ids.join(',')})")
     end
+    Rails.logger "Processing tag #{tag} end"
   end
 end
