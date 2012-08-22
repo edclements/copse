@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120731225555) do
+ActiveRecord::Schema.define(:version => 20120822144552) do
 
   create_table "SystemEvents", :primary_key => "ID", :force => true do |t|
     t.integer  "CustomerID",         :limit => 8
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(:version => 20120731225555) do
     t.integer  "SystemID"
     t.datetime "time"
   end
+
+  add_index "SystemEvents", ["SysLogTag"], :name => "SysLogTagIndex"
 
   create_table "SystemEventsProperties", :primary_key => "ID", :force => true do |t|
     t.integer "SystemEventID"
