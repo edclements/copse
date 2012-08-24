@@ -42,6 +42,7 @@ gem 'mysql2'
 
 group :development do
   gem 'capistrano'
+  gem 'rvm-capistrano'
 end
 
 gem 'rails-backbone'
