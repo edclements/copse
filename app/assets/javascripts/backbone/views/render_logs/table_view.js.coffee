@@ -32,7 +32,7 @@ class Copse.Views.RenderLogs.TableView extends Backbone.View
     @collection.setOrderBy(e.target.id)
 
   clickSession: (e) ->
-    console.log 'click session'
+    @collection.url.removeSearch('session_id')
     @collection.url.addSearch('session_id', e.target.innerHTML)
     @collection.fetch
       success: ->
