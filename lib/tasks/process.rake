@@ -7,6 +7,6 @@ task :process => :environment do
 end
 
 task :destroy_old_syslogs => :environment do
-  id = SystemEvents.order('ID desc').limit(500).last.id
-  SystemEvents.delete_all("ID in (#{(1..id).to_a.join(',')})")
+  old_logs = SystemEvents.where('DeviceReportedTime < ?', Date.today - 1.day)
+  SystemEvents.delete_all("ID in (#{old_logs.map {|l| l.id}.join(',')})")
 end

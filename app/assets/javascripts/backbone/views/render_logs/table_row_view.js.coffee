@@ -8,5 +8,5 @@ class Copse.Views.RenderLogs.TableRowView extends Backbone.View
 
   render: ->
     for attribute in @columns
-      $(@el).append('<td>'+@model.get(attribute)+'</td>')
+        $(@el).append('<td class="'+attribute+'">'+@model.get(attribute)+'</td>')
     return this

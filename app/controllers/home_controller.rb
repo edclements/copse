@@ -1,11 +1,11 @@
 class HomeController < ApplicationController
 
   def index
-    @logs = RenderLog.order('time').limit(50)
+    @logs = RenderLog.order('completed_time DESC').limit(20)
   end
 
   def graph
-    @logs = RenderLog.order('time').limit(50)
+    @logs = RenderLog.order('id').limit(200)
     @data = @logs.map {|l| ["#{l.time}", l.completed_time]}
   end
 
@@ -14,7 +14,8 @@ class HomeController < ApplicationController
   end
 
   def syslog_list
-    @logs = SystemEvents.order('Message').limit(50)
+    @logs = SystemEvents.order('id desc').limit(20)
+    @logs.sort! {|a,b| a.Message <=> b.Message}
   end
 
   def candlestick

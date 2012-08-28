@@ -1,3 +1,48 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+table
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 13px;
+	margin: 45px;
+	text-align: left;
+	border-collapse: collapse;
+	background: url('table-images/pattern.png');
+  border: 1px solid black;
+}
+table thead tr
+{
+	background: url('table-images/pattern-head.png');
+}
+table th
+{
+	font-size: 14px;
+	font-weight: normal;
+	padding: 8px;
+  border: 1px solid black;
+	// border-bottom: 1px solid #fff;
+	// color: #039;
+}
+table td
+{
+  width: 1000px;
+	padding: 8px; 
+  border: 1px solid black;
+	// border-bottom: 1px solid #fff;
+	// color: #669;
+	// border-top: 1px solid transparent;
+}
+table tbody tr:hover td
+{
+	// color: #339;
+	background: #fff;
+}
+
+
+td.session_id {
+  text-decoration: underline;
+  color: -webkit-link;
+  cursor: pointer;
+}

@@ -1,8 +1,8 @@
 <table>
-  <tr><th>Received At</th><th>DeviceReportedTime</th><th>Message</th></tr>
+  <tr><th>Host</th><th>Time</th><th>Message</th></tr>
   <% @logs.each do |log| %>
   <tr>
-    <td><%= log.ReceivedAt %></td>
+    <td><%= log.FromHost %></td>
     <td><%= log.DeviceReportedTime %></td>
     <td><%= log.Message %></td>
   </tr>

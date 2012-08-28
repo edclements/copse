@@ -19,7 +19,13 @@ class Copse.Views.RenderLogs.FormView extends Backbone.View
     controller = x.options[x.selectedIndex].value
     y = @$('#action')[0]
     action = y.options[y.selectedIndex].value
-    window.render_logs.url = "/render_logs?selected_controller="+controller+"&selected_action="+action
+    limit = @$('#limit').value
+    limit ||= 20
+    uri = URI("/render_logs")
+    uri.addSearch("selected_controller", controller)
+    uri.addSearch("selected_action", action)
+    uri.addSearch("limit", limit)
+    window.render_logs.url = uri
     window.render_logs.fetch
       success: (response) ->
         console.log 'success'
